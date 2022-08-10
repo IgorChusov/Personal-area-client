@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), local('Roboto-Regular'), url('./assets/fonts/Roboto.woff2') format('woff2'), url('./assets/fonts/Roboto.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Medium'), local('Roboto-Medium'), url('./assets/fonts/Robotomedium.woff2') format('woff2'), url('./assets/fonts/Robotomedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Bold'), local('Roboto-Bold'), url('./assets/fonts/Robotobold.woff2') format('woff2'), url('./assets/fonts/Robotobold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Black'), local('Roboto-Black'), url('./assets/fonts/Robotoblack.woff2') format('woff2'), url('./assets/fonts/Robotoblack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+:root {
+  --black: #000000;
+  --blackVar: #1E1E1E;
+  --greenDark: #002D28;
+  --greenLight: #038175;
+  --greenMiddle: #021F18;
+  --green83C: #48683C;
+  --grayС4: #C4C4C4;
+  --grayF7: #F2F2F7;
+  --grayE7: #E7E7E7;
+  --gray99: #999999;
+  --grayF0: #EFEFF0;
+  --grayA9: #8F95A9;
+  --grayC0: #C0C0C0;
+  --white: #FFFFFF;
+  --darkBlue: #252B3D;
+  --redVar: #B44B4B;
+  --swiper-theme-color: #007AFF;
+  --swiper-navigation-size: 44px;
+}
+
+/* s */
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--grayE7);
+  font-size: 16px;
+  line-height: 19px;
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--greenMiddle);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;
+  scrollbar-color: var(--greenLight) #CACACA;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
