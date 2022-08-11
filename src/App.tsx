@@ -11,13 +11,16 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
 import { rootReducer } from './store/reducer'
+import { Content } from './shared/Content'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 function AppComponent() {
   return (
     <Provider store={store}>
-      <Layout></Layout>
+      <Layout>
+        <Content />
+      </Layout>
     </Provider>
   )
 }

@@ -1,48 +1,54 @@
-// import { Reducer } from 'redux'
+import { Reducer } from 'redux'
+import { ADD_CONTACT_ERROR, ADD_CONTACT_REQUEST, ADD_CONTACT_SUCCESS, GET_CONTACTS_SUCCESS } from './contact/action'
+import { contactReducer, ContactsState } from './contact/reduser'
+import { LOGIN_REQUEST, LOGIN_REQUEST_ERROR, LOGIN_REQUEST_SUCCESS } from './logIn/action'
+import { LoginData, loginReducer, LoginState } from './logIn/reduser'
+import { SIGNUP_REQUEST, SIGNUP_REQUEST_ERROR, SIGNUP_REQUEST_SUCCESS } from './signUp/action'
+import { registerReducer } from './signUp/reduser'
 
-// import {
-//   CounterAddAction,
-//   CounterDeleteAction,
-//   CounterMinusAction,
-//   CounterPlusAction,
-//   CounterTimerAction,
-//   COUNTER_ADD,
-//   COUNTER_DELETE,
-//   MINUS_COUNTER,
-//   PLUS_COUNTER,
-//   TIMER_COUNTER,
-// } from './counters/actions'
+export type RootState = {
+  me: LoginState,
+  contacts: ContactsState,
+}
+const initialState: RootState = {
+  me: {
+    loading: false,
+    error: '',
+    data: null
+  },
+  contacts: {
+    loading: false,
+    error: '',
+    data: []
+  }
 
-// import { countersReducer, CounterState } from './counters/reduser'
+}
 
-// export type RootState = {
-//   counters: CounterState
-// }
-// const initialState: RootState = {
-//   counters: {
-//     data: [],
-//   },
-// }
-
-// type CountersAction =
-//   | CounterAddAction
-//   | CounterDeleteAction
-//   | CounterTimerAction
-//   | CounterMinusAction
-//   | CounterPlusAction
-
-// export const rootReducer: Reducer<RootState, CountersAction> = (state = initialState, action) => {
-//   switch (action.type) {
-//     case COUNTER_ADD:
-//     case TIMER_COUNTER:
-//     case MINUS_COUNTER:
-//     case PLUS_COUNTER:
-//     case COUNTER_DELETE:
-//       return {
-//         ...state,
-//         counters: countersReducer(state.counters, action),
-//       }
-//     default:
-//       return state
-//   }
-// }
+export const rootReducer: Reducer<RootState > = (state = initialState, action) => {
+  switch (action.type) {
+    case SIGNUP_REQUEST:
+    case SIGNUP_REQUEST_ERROR:
+    case SIGNUP_REQUEST_SUCCESS:
+      return {
+        ...state,
+        me: registerReducer(state.me, action),
+      }
+      case LOGIN_REQUEST:
+      case LOGIN_REQUEST_ERROR:
+      case LOGIN_REQUEST_SUCCESS:
+        return {
+          ...state,
+          me: loginReducer(state.me, action),
+        }
+      case ADD_CONTACT_REQUEST:
+      case ADD_CONTACT_ERROR:
+      case ADD_CONTACT_SUCCESS:
+      case GET_CONTACTS_SUCCESS:
+        return {
+          ...state,
+          contacts: contactReducer(state.contacts, action),
+        }
+    default:
+      return state
+  }
+}
